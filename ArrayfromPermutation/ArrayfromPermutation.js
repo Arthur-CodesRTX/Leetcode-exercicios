@@ -11,7 +11,6 @@ var buildArray = function(nums) {
     }
 
     return ans
-
 };
 
 
