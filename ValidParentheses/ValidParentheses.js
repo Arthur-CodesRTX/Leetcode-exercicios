@@ -19,9 +19,9 @@ var isValid = function(s) {
         } else if(arr.pop() !== char){
             return false
         }
-
+        console.log(arr)
     }
-
+    
     return arr.length === 0
 
 };
