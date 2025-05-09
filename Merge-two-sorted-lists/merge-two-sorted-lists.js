@@ -1,27 +1,29 @@
+function ListNode(val, next = null) {
+    this.val = val;
+    this.next = next;
+}
+
+// Função para mesclar duas listas ordenadas
 var mergeTwoLists = function(list1, list2) {
-    
-    function ListNode(valor, proximo) {
-        this.val = valor;
-        this.next = proximo;
+    let dummy = new ListNode(-1); // Nó temporário para facilitar a manipulação
+    let current = dummy;
+
+    // Enquanto as duas listas tiverem elementos
+    while (list1 !== null && list2 !== null) {
+        if (list1.val < list2.val) {
+            current.next = list1;   // adiciona o menor nó
+            list1 = list1.next;     // avança na lista1
+        } else {
+            current.next = list2;
+            list2 = list2.next;
+        }
+        current = current.next;     // avança na lista mesclada
     }
 
-    function criaLista() {
-        ListNode(list1,list2)
-        let no2 = new ListNode(list2);        
-        let no1 = new ListNode(list1, no2);
-        let listResultado = no1.val;
-        
-            for(let i = 0; i < no2.val.length; i++){
-                listResultado.push(no2.val[i])
-            }
-            listResultado.sort()
-        
-    
-        return listResultado
-    }
+    // Anexa o resto da lista que ainda tiver nós
+    current.next = list1 !== null ? list1 : list2;
 
-    return criaLista()
-    
+    return dummy.next; // retorna o início da lista mesclada
 };
 
 console.log(mergeTwoLists([1,2,4],[1,3,4]))
