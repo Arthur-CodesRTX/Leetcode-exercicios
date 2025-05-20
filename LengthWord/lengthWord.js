@@ -3,7 +3,6 @@
  * @return {number}
  */
 var lengthOfLastWord = function(s) {
-    
     let fraseLimpa = s.trim().replace(/\s+/g, ' ');
     let fraseArr = fraseLimpa.split(" ")
     return fraseArr[fraseArr.length - 1].length
