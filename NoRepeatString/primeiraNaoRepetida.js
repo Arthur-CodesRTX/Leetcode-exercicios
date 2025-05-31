@@ -9,7 +9,6 @@ function primeiraNaoRepetida(s){
                 break;
             }
         }
-
         if(!repetidos.has(s[i])){
             return s[i]
         }
