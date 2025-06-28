@@ -6,26 +6,20 @@
  */
 var divideString = function(s, k, fill) {
 
-    let arr = []
+    let arr = [];
+    for(let i = 0; i < s.length; i += k){
 
-    for(let i = 0; i < s.length; i++){
-
-        corte = s
-        if(corte.length >= 3){
-            arr.push(corte.slice(0,k))
-            corte = corte.slice(k,-1)
+        if(s.slice(i, i + k).length >= k){
+            arr.push(s.slice(i, i + k));
         } else{
-            
+            let letraX = s.slice(i, i + k).padEnd(k,fill)
+            arr.push(letraX);
         }
-
+        
     }
     
-   
-    return arr
-    
-
+    return arr 
 };
 
 console.log(divideString("abcdefghi",3,"x"))
 console.log(divideString("abcdefghij",3,"x"))
-// console.log(divideString())
